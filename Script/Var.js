@@ -7,6 +7,8 @@ var state = '';
 var menu = false;
 var pause = false;
 
+var selectedCharacter = -1;
+
 var player = {
 };
 

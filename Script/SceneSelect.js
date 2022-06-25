@@ -30,7 +30,18 @@ function displaySelect() {
 function mouseUpSelect(x, y) {
     if (menu === false) {
         if (state === '') {
-            
+            for (var i = 0; i < 6; i++) {
+                if (pointInsideRectArray(x, y, UISelect.characterButton[i])) {
+                    selectedCharacter = i;
+                }
+            }
+
+            if (pointInsideRectArray(x, y, UISelect.startButton)) {
+                if (selectedCharacter != -1) {
+                    scene = 'Game';
+                    state = '';
+                }
+            }
         }
     }
 }
