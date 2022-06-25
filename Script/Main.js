@@ -10,12 +10,17 @@ function main() {
     window.addEventListener('keydown', keyDown);
     window.addEventListener('keyup', keyUp);
 
+    imageLoad();
+    createOffscreenCanvas();
+
     loop();
 }
 
 function loop() {
     if (scene === 'Title') {
         loopTitle();
+    } else if (scene === 'Select') {
+        loopSelect();
     } else if (scene === 'Game') {
         loopGame();
     }
@@ -25,10 +30,12 @@ function loop() {
 
 function mouseUp(event) {
     var x = event.clientX - canvasRect.left;
-    var y = event.ciientY - canvasRect.top;
+    var y = event.clientY - canvasRect.top;
 
     if (scene === 'Title') {
         mouseUpTitle(x, y);
+    } else if (scene === 'Select') {
+        mouseUpSelect(x, y);
     } else if (scene === 'Game') {
         mouseUpGame(x, y);
     }
@@ -39,6 +46,8 @@ function keyDown(event) {
 
     if (scene === 'Title') {
         keyDownTitle(key);    
+    } else if (scene === 'Select') {
+        keyDownSelect(key);
     } else if (scene === 'Game') {
         keyDownGame(key);
     }
@@ -49,6 +58,8 @@ function keyUp(event) {
 
     if (scene === 'Title') {
         keyUpTitle(key);
+    } else if (scene === 'Select') {
+        keyUpSelect(key);
     } else if (scene === 'Game') {
         keyUpTitle(key);
     }
