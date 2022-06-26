@@ -37,7 +37,11 @@ function mouseUp(event) {
     } else if (scene === 'Select') {
         mouseUpSelect(x, y);
     } else if (scene === 'Game') {
-        mouseUpGame(x, y);
+        if (event.button === 0) {
+            mouseUpGameLeft(x, y);
+        } else if (event.button === 2) {
+            mouseUpGameRight(x, y);
+        }
     }
 }
 

@@ -38,6 +38,7 @@ function mouseUpSelect(x, y) {
 
             if (pointInsideRectArray(x, y, UISelect.startButton)) {
                 if (selectedCharacter != -1) {
+                    startNewGame();
                     scene = 'Game';
                     state = '';
                 }

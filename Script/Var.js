@@ -10,7 +10,21 @@ var pause = false;
 var selectedCharacter = -1;
 
 var player = {
+    life : 60,
+    lifeMax : 60,
+    energy : 6,
+    energyMax : 6,
+    speed : 8,
+
+    hand : [],
+    deck : [],
+
+    position : [320, 320],
+    velocity : [0, 0],
+    destination : [320, 320],
+    moving : false,
 };
 
 var field = {
+    enemy : [],
 };
