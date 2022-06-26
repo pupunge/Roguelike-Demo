@@ -18,17 +18,14 @@ function displayGame() {
     context.clearRect(0, 0, 1024, 640);
 
     // Player display
-    context.strokeRect(Math.floor(player.position[0] - 32), Math.floor(player.position[1] - 32), 64, 64);
-
-    context.strokeStyle = 'Green';
+    context.drawImage(img.player['Down'], Math.floor(player.position[0] - 32), Math.floor(player.position[1] - 32));
 
     // Enemy display
     for (i = 0; i < field.enemy.length; i++) {
-        context.strokeRect(Math.floor(field.enemy[i]['Position'][0] - 32), Math.floor(field.enemy[i]['Position'][1] - 32), 64, 64);
+        context.drawImage(canvas.enemy[field.enemy[i]['ID']], Math.floor(field.enemy[i]['Position'][0] - 32), Math.floor(field.enemy[i]['Position'][1] - 32));
     }
 
     // Lower UI
-    context.strokeStyle = 'Black';
     
     strokeRectArray(UIGame.handCardRect);
 
