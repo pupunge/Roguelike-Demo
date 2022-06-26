@@ -1,3 +1,8 @@
+var UIGame = {
+    handCardRect : [128, 544, 512, 64],
+    handCardList : [[128, 544], [192, 544], [256, 544], [320, 544], [384, 64], [448, 64], [512, 64], [576, 64]],
+};
+
 function loopGame() {
     playerMove();
     enemyMove();
@@ -12,26 +17,26 @@ function displayGame() {
 
     context.clearRect(0, 0, 1024, 640);
 
-    context.drawRect(Math.floor(player.position[0]), Math.floor(player.position[1]), 64, 64);
-}
+    // Player display
+    context.strokeRect(Math.floor(player.position[0] - 32), Math.floor(player.position[1] - 32), 64, 64);
 
-function playerMove() {
-    if (player.move === true) {
-        var positionDiff = [player.destination[0] - player.position[0], player.destination[1] - player.position[1]];
+    context.strokeStyle = 'Green';
 
-        if (vectorSize(positionDiff) < 3) {
-            player.move = false;
-            return;
-        }
-
-        player.velocity = vectorMultipleConstant(vectorNormalize(positionDiff), player.speed);
-        player.position[0] += player.velocity[0];
-        player.position[1] += player.velocity[1];
+    // Enemy display
+    for (i = 0; i < field.enemy.length; i++) {
+        context.strokeRect(Math.floor(field.enemy[i]['Position'][0] - 32), Math.floor(field.enemy[i]['Position'][1] - 32), 64, 64);
     }
-}
 
-function enemyMove() {
+    // Lower UI
+    context.strokeStyle = 'Black';
+    
+    strokeRectArray(UIGame.handCardRect);
 
+    for (var i = 0; i < 8; i++) {
+        if (player.hand[i] != 0) {
+            strokeRectArray([UIGame.handCardList[i][0], UIGame.handCardList[i][1], 64, 64]);
+        }
+    }
 }
 
 function mouseUpGameLeft(x, y) {

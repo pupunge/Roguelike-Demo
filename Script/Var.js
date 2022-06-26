@@ -23,8 +23,12 @@ var player = {
     velocity : [0, 0],
     destination : [320, 320],
     moving : false,
+
+    currentRoom : [0, 0],
 };
 
 var field = {
+    level : 1,
+    rooms : [],
     enemy : [],
 };

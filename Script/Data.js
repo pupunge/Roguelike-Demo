@@ -9,3 +9,8 @@ var dataCardDescription = [
     {'ID' : 1, 'Text' : 'Shoot magic bolt by your direction. It deals 32 damage.'},
     {'ID' : 2, 'Text' : 'Restore 16 Health.'}
 ];
+
+var dataEnemy = [
+    0,
+    {'ID' : 1, 'Name' : 'Green Jelly Slime', 'Attack' : 3, 'Life' : 30, 'Speed' : 5},
+];
